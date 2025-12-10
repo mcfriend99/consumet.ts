@@ -25,7 +25,7 @@ class MegaCloud extends models_1.VideoExtractor {
                     var _a, _b;
                     return ({
                         lang: (_a = t.label) !== null && _a !== void 0 ? _a : 'Unknown',
-                        url: t.file,
+                        url: t.file || t.url || '',
                         kind: (_b = t.kind) !== null && _b !== void 0 ? _b : 'captions',
                     });
                 })) !== null && _c !== void 0 ? _c : [];
