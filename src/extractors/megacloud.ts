@@ -6,7 +6,8 @@ interface IMegaCloudOutput {
     quality: string;
   }[];
   tracks: {
-    file: string;
+    file?: string;
+    url?: string;
     label?: string;
     kind?: string;
   }[];
@@ -44,7 +45,7 @@ class MegaCloud extends VideoExtractor {
       const subtitles: ISubtitle[] =
         data.tracks?.map(t => ({
           lang: t.label ?? 'Unknown',
-          url: t.file || t.url,
+          url: t.file || t.url || '',
           kind: t.kind ?? 'captions',
         })) ?? [];
 
