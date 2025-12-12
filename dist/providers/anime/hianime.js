@@ -89,14 +89,14 @@ class Hianime extends models_1.AnimeParser {
                     if (genre != undefined)
                         (_a = info.genres) === null || _a === void 0 ? void 0 : _a.push(genre);
                 });
-                switch ($$$('.item.item-title').find("span.item-head:contains('Status')").next('span.name').text().trim()) {
-                    case 'Finished Airing':
+                switch ($$$('.item.item-title').find("span.item-head:contains('Status')").next('span.name').text().trim().toLowerCase()) {
+                    case 'finished airing':
                         info.status = models_1.MediaStatus.COMPLETED;
                         break;
-                    case 'Currently Airing':
+                    case 'currently airing':
                         info.status = models_1.MediaStatus.ONGOING;
                         break;
-                    case 'Not yet aired':
+                    case 'not yet aired':
                         info.status = models_1.MediaStatus.NOT_YET_AIRED;
                         break;
                     default:
