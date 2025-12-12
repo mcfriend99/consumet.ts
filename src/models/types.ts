@@ -88,6 +88,10 @@ export interface IAnimeInfo extends IAnimeResult {
   totalEpisodes?: number;
   duration?: string;
   quality?: string;
+  showRating?: string;
+  nsfw?: boolean;
+  sub?: number;
+  dub?: number;
   /**
    * @deprecated use `hasSub` or `hasDub` instead
    */

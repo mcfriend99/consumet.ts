@@ -18,6 +18,10 @@ import {
 import { MegaCloud, StreamSB, StreamTape } from '../../extractors';
 import { USER_AGENT } from '../../utils';
 
+const stripTags = (str: string): string | undefined => {
+  return str?.replace(/<[^>]*>/g, '').trim();
+}
+
 class Hianime extends AnimeParser {
   override readonly name = 'hianime';
   protected override baseUrl = 'https://hianime.to';
@@ -560,18 +564,25 @@ class Hianime extends AnimeParser {
           episodes: parseInt(card.find('.tick-item.tick-eps')?.text()) || 0,
         });
       });
-      const hasSub: boolean = $('div.film-stats div.tick div.tick-item.tick-sub').length > 0;
-      const hasDub: boolean = $('div.film-stats div.tick div.tick-item.tick-dub').length > 0;
 
-      if (hasSub) {
+      info.showRating = $('.tick-item.tick-quality').prev().text().trim();
+      info.nsfw = info.ShowRating === '18+'; 
+
+      const sub = parseInt(stripTags($('div.film-stats div.tick div.tick-item.tick-sub')?.text()) || '0');
+      const dub = parseInt(stripTags($('div.film-stats div.tick div.tick-item.tick-dub')?.text()) || '0');
+
+      info.sub = sub;
+      info.dub = dub;
+
+      if (sub > 0) {
         info.subOrDub = SubOrSub.SUB;
-        info.hasSub = hasSub;
+        info.hasSub = true;
       }
-      if (hasDub) {
+      if (dub > 0) {
         info.subOrDub = SubOrSub.DUB;
-        info.hasDub = hasDub;
+        info.hasDub = true;
       }
-      if (hasSub && hasDub) {
+      if (sub > 0 && dub > 0) {
         info.subOrDub = SubOrSub.BOTH;
       }
 
@@ -629,7 +640,7 @@ class Hianime extends AnimeParser {
       );
 
       const $_ = load(ratingAjax.data.html);
-      info.rating = parseFloat($_('.rr-mark').text().replace(/<[^>]+>/, '').trim() || '0');
+      info.rating = parseFloat(stripTags($_('.rr-mark').text()) || '0');
       
 
       const episodesAjax = await this.client.get(
