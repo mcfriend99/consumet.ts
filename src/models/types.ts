@@ -375,6 +375,7 @@ export interface ISource {
   sources: IVideo[];
   download?: string | { url?: string; quality?: string }[];
   embedURL?: string;
+  [x: string]: unknown; // other fields
 }
 
 /**
