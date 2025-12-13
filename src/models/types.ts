@@ -352,6 +352,11 @@ export interface ISubtitle {
    * The language of the subtitle
    */
   lang: string;
+
+  /**
+   * The kind of subtitle (e.g. captions, subtitles, descriptions)
+   */
+  kind?: string;
 }
 
 /**

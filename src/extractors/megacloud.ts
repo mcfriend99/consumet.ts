@@ -54,7 +54,7 @@ class MegaCloud extends VideoExtractor {
         subtitles,
       };
     } catch (err) {
-      throw new Error((err as Error).message);
+      throw new Error(`Failed to extract video sources for ${videoUrl.href}: ${(err as Error).message}`);
     }
   };
 }
