@@ -1,7 +1,7 @@
 {
-  "name": "@Mcfriends/consumet",
-  "version": "1.8.7",
-  "description": "A custom for of Comsumet - Nodejs library that provides high-level APIs for obtaining information on various entertainment media such as books, movies, comic books, anime, manga, and so on.",
+  "name": "mc_consumet",
+  "version": "0.1.0",
+  "description": "A custom fork of Comsumet - Nodejs library that provides high-level APIs for obtaining information on various entertainment media such as books, movies, comic books, anime, manga, and so on.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
