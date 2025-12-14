@@ -13,6 +13,7 @@ import {
 class AnimeSaturn extends AnimeParser {
   override readonly name = 'AnimeSaturn';
   protected override baseUrl = 'https://www.animesaturn.cx/';
+  protected override proxyReferer = 'https://www.animesaturn.cx/';
   protected override logo = 'https://www.animesaturn.cx/immagini/favicon-32x32.png';
   protected override classPath = 'ANIME.AnimeSaturn';
 

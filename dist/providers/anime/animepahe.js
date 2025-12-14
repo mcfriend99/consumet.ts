@@ -9,6 +9,7 @@ class AnimePahe extends models_1.AnimeParser {
         super(...arguments);
         this.name = 'AnimePahe';
         this.baseUrl = 'https://animepahe.si';
+        this.proxyReferer = 'https://animepahe.si';
         this.logo = 'https://animepahe.com/pikacon.ico';
         this.classPath = 'ANIME.AnimePahe';
         /**

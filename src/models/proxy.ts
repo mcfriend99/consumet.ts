@@ -3,13 +3,19 @@ import axios, { AxiosAdapter, AxiosInstance } from 'axios';
 import { ProxyConfig } from './types';
 
 export class Proxy {
+
   /**
    *
    * @param proxyConfig The proxy config (optional)
    * @param adapter The axios adapter (optional)
    */
   constructor(protected proxyConfig?: ProxyConfig, protected adapter?: AxiosAdapter) {
-    this.client = axios.create();
+    this.client = axios.create({
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+        Referer: this.proxyReferer,
+      }
+    });
 
     if (proxyConfig) this.setProxy(proxyConfig);
     if (adapter) this.setAxiosAdapter(adapter);
@@ -63,6 +69,7 @@ export class Proxy {
   private toMap = <T>(arr: T[]): [number, T][] => arr.map((v, i) => [i, v]);
 
   protected client: AxiosInstance;
+  protected proxyReferer: string | undefined = undefined;
 }
 
 export default Proxy;

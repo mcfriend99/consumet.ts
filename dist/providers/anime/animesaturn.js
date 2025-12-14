@@ -7,6 +7,7 @@ class AnimeSaturn extends models_1.AnimeParser {
         super(...arguments);
         this.name = 'AnimeSaturn';
         this.baseUrl = 'https://www.animesaturn.cx/';
+        this.proxyReferer = 'https://www.animesaturn.cx/';
         this.logo = 'https://www.animesaturn.cx/immagini/favicon-32x32.png';
         this.classPath = 'ANIME.AnimeSaturn';
         /**

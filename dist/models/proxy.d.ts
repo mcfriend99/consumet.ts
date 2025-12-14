@@ -21,5 +21,6 @@ export declare class Proxy {
     private rotateProxy;
     private toMap;
     protected client: AxiosInstance;
+    protected proxyReferer: string | undefined;
 }
 export default Proxy;

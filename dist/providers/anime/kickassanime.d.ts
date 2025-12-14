@@ -2,6 +2,7 @@ import { AnimeParser, ISearch, IAnimeInfo, IAnimeResult, ISource, IEpisodeServer
 declare class KickAssAnime extends AnimeParser {
     readonly name = "KickAssAnime";
     protected baseUrl: string;
+    protected proxyReferer: string;
     protected logo: string;
     protected classPath: string;
     /**

@@ -2,6 +2,7 @@ import { AnimeParser, ISearch, IAnimeInfo, IAnimeResult, ISource, IEpisodeServer
 declare class Hianime extends AnimeParser {
     readonly name = "hianime";
     protected baseUrl: string;
+    protected proxyReferer: string;
     protected logo: string;
     protected classPath: string;
     /**

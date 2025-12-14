@@ -25,6 +25,7 @@ const stripTags = (str: string): string | undefined => {
 class Hianime extends AnimeParser {
   override readonly name = 'hianime';
   protected override baseUrl = 'https://hianime.to';
+  protected override proxyReferer = 'https://hianime.to';
   protected override logo =
     'https://is3-ssl.mzstatic.com/image/thumb/Purple112/v4/7e/91/00/7e9100ee-2b62-0942-4cdc-e9b93252ce1c/source/512x512bb.jpg';
   protected override classPath = 'ANIME.hianime';

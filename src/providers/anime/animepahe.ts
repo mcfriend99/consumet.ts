@@ -17,6 +17,7 @@ import { Kwik } from '../../extractors';
 class AnimePahe extends AnimeParser {
   override readonly name = 'AnimePahe';
   protected override baseUrl = 'https://animepahe.si';
+  protected override proxyReferer = 'https://animepahe.si';
   protected override logo = 'https://animepahe.com/pikacon.ico';
   protected override classPath = 'ANIME.AnimePahe';
 

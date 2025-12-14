@@ -25,7 +25,13 @@ class Proxy {
             }, (_a = proxy === null || proxy === void 0 ? void 0 : proxy.rotateInterval) !== null && _a !== void 0 ? _a : 5000);
         };
         this.toMap = (arr) => arr.map((v, i) => [i, v]);
-        this.client = axios_1.default.create();
+        this.proxyReferer = undefined;
+        this.client = axios_1.default.create({
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                Referer: this.proxyReferer,
+            }
+        });
         if (proxyConfig)
             this.setProxy(proxyConfig);
         if (adapter)

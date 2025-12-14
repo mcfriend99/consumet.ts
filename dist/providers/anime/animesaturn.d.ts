@@ -2,6 +2,7 @@ import { AnimeParser, ISearch, IAnimeInfo, IAnimeResult, ISource, IEpisodeServer
 declare class AnimeSaturn extends AnimeParser {
     readonly name = "AnimeSaturn";
     protected baseUrl: string;
+    protected proxyReferer: string;
     protected logo: string;
     protected classPath: string;
     /**

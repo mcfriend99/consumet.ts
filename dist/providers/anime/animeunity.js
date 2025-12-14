@@ -7,6 +7,7 @@ class AnimeUnity extends models_1.AnimeParser {
         super(...arguments);
         this.name = 'AnimeUnity';
         this.baseUrl = 'https://www.animeunity.to';
+        this.proxyReferer = 'https://www.animeunity.to';
         this.logo = 'https://www.animeunity.to/favicon-32x32.png';
         this.classPath = 'ANIME.AnimeUnity';
         /**

@@ -13,6 +13,7 @@ import {
 class AnimeUnity extends AnimeParser {
   override readonly name = 'AnimeUnity';
   protected override baseUrl = 'https://www.animeunity.to';
+  protected override proxyReferer = 'https://www.animeunity.to';
   protected override logo = 'https://www.animeunity.to/favicon-32x32.png';
   protected override classPath = 'ANIME.AnimeUnity';
 
