@@ -845,6 +845,18 @@ class Hianime extends models_1.AnimeParser {
             headers: { Cookie: `connect.sid=${connectSid}` },
         });
     }
+    /**
+    * Fetch all animes ordered alphabetically from A-Z.
+    *
+    * @param page Page number
+    * @returns Promise<ISearch<IAnimeResult>>
+    */
+    async fetchAnimeList(page = 1) {
+        if (0 >= page) {
+            page = 1;
+        }
+        return this.scrapeCardPage(`${this.baseUrl}/az-list?page=${page}`);
+    }
 }
 exports.default = Hianime;
 //# sourceMappingURL=hianime.js.map

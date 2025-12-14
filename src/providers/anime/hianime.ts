@@ -794,6 +794,19 @@ class Hianime extends AnimeParser {
     }
   };
 
+   /**
+   * Fetch all animes ordered alphabetically from A-Z.
+   * 
+   * @param page Page number
+   * @returns Promise<ISearch<IAnimeResult>>
+   */
+  async fetchAnimeList(page: number = 1): Promise<ISearch<IAnimeResult>> {
+    if (0 >= page) {
+      page = 1;
+    }
+    return this.scrapeCardPage(`${this.baseUrl}/az-list?page=${page}`);
+  }
+
   private verifyLoginState = async (connectSid: string): Promise<boolean> => {
     try {
       const { data } = await this.client.get(`${this.baseUrl}/ajax/login-state`, {
